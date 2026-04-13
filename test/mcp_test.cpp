@@ -97,8 +97,7 @@ class LifecycleEnvironment : public ::testing::Environment {
 public:
     void SetUp() override {
         // Set up test environment
-        server::configuration conf = {.host = "localhost",.port = 8080};
-        server_ = std::make_unique<server>(conf);
+        server_ = std::make_unique<server>(server::configuration{ "localhost", 8080 });
         server_->set_server_info("TestServer", "1.0.0");
         
         // Set server capabilities
@@ -179,8 +178,7 @@ class VersioningEnvironment : public ::testing::Environment {
 public:
     void SetUp() override {
         // Set up test environment
-        server::configuration conf = {.host = "localhost",.port = 8081};
-        server_ = std::make_unique<server>(conf);
+        server_ = std::make_unique<server>(server::configuration{ "localhost", 8081 });
         server_->set_server_info("TestServer", "1.0.0");
         
         // Set server capabilities
@@ -349,8 +347,7 @@ class PingEnvironment : public ::testing::Environment {
 public:
     void SetUp() override {
         // Set up test environment
-        server::configuration conf = {.host = "localhost",.port = 8082};
-        server_ = std::make_unique<server>(conf);
+        server_ = std::make_unique<server>(server::configuration{ "localhost", 8082 });
         
         // Start server (non-blocking mode)
         server_->start(false);
@@ -512,8 +509,7 @@ class ToolsEnvironment : public ::testing::Environment {
 public:
     void SetUp() override {
         // Set up test environment
-        server::configuration conf = {.host = "localhost",.port = 8083};
-        server_ = std::make_unique<server>(conf);
+        server_ = std::make_unique<server>(server::configuration{ "localhost", 8083 });
         
         // Create a test tool
         tool test_tool;

@@ -8,6 +8,8 @@ add_library(${TARGET} STATIC
     ../include/mcp_resource.h
     mcp_server.cpp
     ../include/mcp_server.h
+    mcp_streamable_http_server.cpp
+    ../include/mcp_streamable_http_server.h
     mcp_tool.cpp
     ../include/mcp_tool.h
     mcp_stdio_client.cpp

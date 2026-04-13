@@ -865,10 +865,18 @@ json server::handle_initialize(const request& req, const std::string& session_id
     std::string requested_version = params["protocolVersion"].get<std::string>();
     LOG_INFO("Client requested protocol version: ", requested_version);
 
-    if (requested_version != MCP_VERSION) {
-        LOG_WARNING("Client requested protocol version ", requested_version,
-                    ", server supports ", MCP_VERSION, ". Responding with supported version.");
-    }
+    //if (requested_version != MCP_VERSION) {
+    //    LOG_ERROR("Unsupported protocol version: ", requested_version, ", server supports: ", MCP_VERSION);
+    //    return response::create_error(
+    //        req.id, 
+    //        error_code::invalid_params, 
+    //        "Unsupported protocol version",
+    //        {
+    //            {"supported", {MCP_VERSION}},
+    //            {"requested", params["protocolVersion"]}
+    //        }
+    //    ).to_json();
+    //}
 
     // Extract client info
     std::string client_name = "UnknownClient";
